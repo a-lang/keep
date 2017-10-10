@@ -13,9 +13,11 @@ Windows
 Mac
 ![](screenshot-mac.png)
 
-## Install Prebuilt Installer
+## Install
 
-Go to Release to download installer for all OS.
+The softwares are portable, just unpack the zip file then run it. 
+
+Go to Release to download the packages for all OS.
 
 * Linux: GoogleKeepDesktop-linux-x64.zip (64-bit), GoogleKeepDesktop-linux-ia32.zip (32-bit)
 * Mac: GoogleKeepDesktop-darwin-x64.zip
