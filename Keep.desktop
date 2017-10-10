@@ -1,0 +1,7 @@
+[Desktop Entry]
+Comment=
+Terminal=false
+Name=Keep
+Exec=/path/to/app/GoogleKeepDesktop
+Type=Application
+Icon=/path/to/app/resources/app/build/icon.png

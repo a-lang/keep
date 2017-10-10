@@ -1,44 +1,46 @@
 {
-  "name": "keep",
-  "productName": "Keep",
-  "version": "0.1.5",
-  "description": "Desktop app for Google Keep packaged with Electron",
-  "electronVersion": "0.36.0",
-  "files": [
-    "*.js",
-    "assets"
-  ],
-  "scripts": {
-    "start": "electron .",
-    "build": "npm run build:macos && npm run build:linux && npm run build:windows",
-    "build:macos": "electron-packager . --overwrite --asar --out=dist --ignore='^/dist$' --platform=darwin --arch=x64 --icon=assets/icon.icns --app-bundle-id=com.andrepolischuk.keep && cd dist/Keep-darwin-x64 && zip -ryXq9 ../Keep-macos-${npm_package_version}.zip Keep.app",
-    "build:linux": "electron-packager . --overwrite --out=dist --ignore='^/dist$' --platform=linux --arch=x64 --app-bundle-id=com.andrepolischuk.keep && cd dist/Keep-linux-x64 && zip -ryq9 ../Keep-linux-${npm_package_version}.zip *",
-    "build:windows": "electron-packager . --overwrite --asar --out=dist --ignore='^/dist$' --platform=win32 --arch=ia32 --icon=assets/icon.ico --version-string.ProductName=$npm_package_productName && cd dist/Keep-win32-ia32 && zip -ryq9 ../Keep-windows-${npm_package_version}.zip *",
-    "test": "standard"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andrepolischuk/keep.git"
-  },
-  "keywords": [
-    "electron-app",
-    "electron",
-    "google",
-    "keep"
-  ],
-  "author": "Andrey Polischuk <me@andrepolischuk.com> (https://andrepolischuk.com)",
-  "license": "Unlicense",
-  "bugs": {
-    "url": "https://github.com/andrepolischuk/keep/issues"
-  },
-  "homepage": "https://github.com/andrepolischuk/keep",
-  "dependencies": {
-    "electron-config": "^1.0.0",
-    "electron-debug": "^1.0.1"
-  },
-  "devDependencies": {
-    "electron": "^1.4.4",
-    "electron-packager": "^9.1.0",
-    "standard": "^10.0.3"
-  }
+    "name": "GoogleKeep",
+    "productName": "GoogleKeepDesktop",
+    "version": "0.1.6",
+    "description": "Desktop app for Google Keep packaged with Electron",
+    "author": "A-Lang <alang.hsu@gmail.com> (http://www.osslab.org.tw)",
+    "license": "Unlicense",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/a-lang/keep.git"
+    },
+    "keywords": [
+        "electron-app",
+        "electron",
+        "google",
+        "keep"
+    ],
+    "electronVersion": "1.7.8",
+    "files": [
+        "*.js",
+        "build/"
+    ],
+    "scripts": {
+        "start": "electron .",
+
+        "clean": "rm -rf ./dist",
+        "clean:linux": "rm -rf ./dist/*-linux-*/",
+        "clean:win": "rm -rf ./dist/*-win32-*/",
+
+        "package": "npm run package:macos && npm run package:linux64 && npm run package:windows",
+        "package:macos": "electron-packager . --overwrite --asar --out=dist --ignore='^/dist$' --platform=darwin --arch=x64 --icon=build/icon.icns --app-bundle-id=com.electron.keep ",
+        "package:linux": "npm run clean:linux && electron-packager . --out=dist --ignore='^/dist$' --platform=linux --arch=x64 --arch=ia32",
+        "package:win": "npm run clean:win && electron-packager . --asar --out=dist --ignore='^/dist$' --platform=win32 --arch=ia32 --icon=build/icon_64x64.ico --version-string.ProductName=$npm_package_productName ",
+        "test": "standard"
+    },
+    "dependencies": {
+        "electron-config": "^1.0.0",
+        "electron-debug": "^1.0.1"
+    },
+    "devDependencies": {
+        "electron": "^1.7.8",
+        "electron-builder": "^19.34.2",
+        "electron-packager": "^9.1.0",
+        "standard": "^10.0.3"
+    }
 }
