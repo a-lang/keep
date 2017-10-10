@@ -17,11 +17,9 @@ Mac
 
 Go to Release to download installer for all OS.
 
-for Linux: GoogleKeepDesktop-linux-x64.zip (64-bit), GoogleKeepDesktop-linux-ia32.zip (32-bit)
-
-for Mac: GoogleKeepDesktop-darwin-x64.zip
-
-for Windows: GoogleKeepDesktop-win32-ia32.zip
+* Linux: GoogleKeepDesktop-linux-x64.zip (64-bit), GoogleKeepDesktop-linux-ia32.zip (32-bit)
+* Mac: GoogleKeepDesktop-darwin-x64.zip
+* Windows: GoogleKeepDesktop-win32-ia32.zip
 
 
 ## Optional: Create Electron Development
