@@ -1,28 +1,41 @@
-# keep [![Build Status][travis-image]][travis-url]
+# GoogleKeepDesktop 
 
-> Desktop app for [Google Keep][google-keep] packaged with [Electron][electron]
+Desktop app for [Google Keep][google-keep] packaged with [Electron][electron]
 
 ![](screenshot.png)
 
-## Install
+Linux
+![](screenshot-linux.png)
+
+Windows
+![](screenshot-win.png)
+
+Mac
+![](screenshot-mac.png)
+
+## Install Prebuilt Installer
+
+Go to Release to download installer for all OS.
+
+for Linux: 
+for Mac:
+for Windows:
+
+
+## Optional: Create Electron Development
 
 ```sh
-git clone https://github.com/andrepolischuk/keep
+git clone https://github.com/a-lang/keep.git
 cd keep
 npm install
 ```
 
-## Run
-
-```sh
-npm start
-```
-
-## Build
+## Optional: Build the distribution files
 
 Build the application for specified platform:
 
 ```sh
+npm start
 npm run build:macos
 npm run build:linux
 npm run build:windows
@@ -31,9 +44,6 @@ npm run build:windows
 ## License
 
 [UNLICENSE][unlicense]
-
-[travis-url]: https://travis-ci.org/andrepolischuk/keep
-[travis-image]: https://travis-ci.org/andrepolischuk/keep.svg?branch=master
 
 [google-keep]: https://keep.google.com
 [electron]: http://electron.atom.io
