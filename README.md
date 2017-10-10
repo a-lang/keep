@@ -17,9 +17,11 @@ Mac
 
 Go to Release to download installer for all OS.
 
-for Linux: 
-for Mac:
-for Windows:
+for Linux: GoogleKeepDesktop-linux-x64.zip (64-bit), GoogleKeepDesktop-linux-ia32.zip (32-bit)
+
+for Mac: GoogleKeepDesktop-darwin-x64.zip
+
+for Windows: GoogleKeepDesktop-win32-ia32.zip
 
 
 ## Optional: Create Electron Development
@@ -36,9 +38,9 @@ Build the application for specified platform:
 
 ```sh
 npm start
-npm run build:macos
-npm run build:linux
-npm run build:windows
+npm run pacakge:linux
+npm run package:macos
+npm run package:win
 ```
 
 ## License
