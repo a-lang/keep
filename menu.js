@@ -177,7 +177,7 @@ module.exports = function createMainMenu() {
             submenu: [{
                 label: 'View on GitHub',
                 click: () => {
-                    shell.openExternal('http://github.com/andrepolischuk/keep')
+                    shell.openExternal('https://github.com/a-lang/keep')
                 }
             }]
         }

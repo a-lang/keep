@@ -1,10 +1,9 @@
 {
     "name": "GoogleKeep",
-    "productName": "GoogleKeepDesktop",
-    "version": "0.1.6",
+    "version": "0.2.0",
     "description": "Desktop app for Google Keep packaged with Electron",
     "author": "A-Lang <alang.hsu@gmail.com> (http://www.osslab.org.tw)",
-    "license": "Unlicense",
+    "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/a-lang/keep.git"
@@ -15,32 +14,70 @@
         "google",
         "keep"
     ],
-    "electronVersion": "1.7.8",
     "files": [
         "*.js",
         "build/"
     ],
     "scripts": {
         "start": "electron .",
-
         "clean": "rm -rf ./dist",
         "clean:linux": "rm -rf ./dist/*-linux-*/",
         "clean:win": "rm -rf ./dist/*-win32-*/",
-
-        "package": "npm run package:macos && npm run package:linux64 && npm run package:windows",
-        "package:macos": "electron-packager . --overwrite --asar --out=dist --ignore='^/dist$' --platform=darwin --arch=x64 --icon=build/icon.icns --app-bundle-id=com.electron.keep ",
-        "package:linux": "npm run clean:linux && electron-packager . --out=dist --ignore='^/dist$' --platform=linux --arch=x64 --arch=ia32",
-        "package:win": "npm run clean:win && electron-packager . --asar --out=dist --ignore='^/dist$' --platform=win32 --arch=ia32 --icon=build/icon_64x64.ico --version-string.ProductName=$npm_package_productName ",
+        "package": "npm run package:mac && npm run package:linux64 && npm run package:windows",
+        "package:mac": "electron-packager . --overwrite --asar --out=dist --ignore='^/dist$' --platform=darwin --arch=x64 --icon=build/icon.icns --app-bundle-id=com.electron.keep ",
+        "package:linux64": "npm run clean:linux && electron-packager . --out=dist --ignore='^/dist$' --platform=linux --arch=x64",
+        "package:linux32": "npm run clean:linux && electron-packager . --out=dist --ignore='^/dist$' --platform=linux --arch=ia32",
+        "dist:linux64": "npm run clean && build --linux",
+        "dist:linux32": "npm run clean && build --linux --ia32",
+        "dist:mac": "npm run clean && build --mac",
+        "dist:win": "npm run clean && build --win",
         "test": "standard"
+    },
+    "build": {
+        "appId": "com.electron.keep",
+        "directories": {
+            "buildResources": "app/build"
+        },
+        "mac": {
+            "category": "public.app-category.productivity",
+            "icon": "build/icon.icns",
+            "target": [
+                "zip",
+                "tar.gz"
+            ]
+        },
+        "linux": {
+            "category": "Office;",
+            "maintainer": "A-Lang <alang.hsu@gmail.com>",
+            "icon": "build",
+            "desktop": {
+                "Icon": "build/icon.png",
+                "Name": "Keep",
+                "Comment": "Google Keep Desktop",
+                "Categories": "GTK;GNOME;Office;",
+                "Terminal": "false"
+            },
+            "target": [
+                "AppImage",
+                "tar.gz"
+            ]
+        },
+        "win": {
+            "target": [
+                "nsis",
+                "zip"
+            ],
+            "icon": "build/icon.png"
+        }
     },
     "dependencies": {
         "electron-config": "^1.0.0",
         "electron-debug": "^1.0.1"
     },
     "devDependencies": {
-        "electron": "^1.7.8",
-        "electron-builder": "^19.34.2",
-        "electron-packager": "^9.1.0",
+        "electron": "^1.8.8",
+        "electron-builder": "^20.34.0",
+        "electron-packager": "^12.2.0",
         "standard": "^10.0.3"
     }
 }
